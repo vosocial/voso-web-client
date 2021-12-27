@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+Primary use for these extensions is to abstract all
+dark variants. This way, you can simply use a streamlined
+class, instead of repeating yourself
+See docs: 
+*/
+.border-dark-700 {
+    @apply dark:border-gray-700;
+}
+.divide-dark-700 {
+    @apply dark:divide-gray-700;
+}
+.bg-dark-500 {
+    @apply dark:bg-gray-500;
+ }
+.bg-dark-600 {
+    @apply dark:bg-gray-600;
+ }
+.bg-dark-700 {
+    @apply dark:bg-gray-700;
+ }
+.bg-dark-800 {
+    @apply dark:bg-gray-800;
+ }
+.bg-dark-900 {
+   @apply dark:bg-gray-900;
+}
+.bg-dropdown-dark-700 {
+    @apply dark:bg-gray-700;
+}
+.text-dark-200 {
+    @apply dark:text-gray-200;
+}
+.text-muted-dark-500 {
+    @apply dark:text-gray-500;
+}
+
+.mat-dialog-container {
+    @apply bg-transparent shadow-none !important;
+}

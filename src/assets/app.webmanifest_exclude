@@ -1,0 +1,36 @@
+{
+  "name": "voso",
+  "short_name": "voso",
+  "description": "The voice-first social network powered by DeSo",
+  "icons": [
+    {
+      "src": "/assets/bitclout/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/bitclout/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/bitclout/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/bitclout/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#182026",
+  "background_color": "#FFF"
+}
