@@ -6,9 +6,12 @@ import { AdminGuard } from 'src/app/shared/auth/admin.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: AdminComponent,
-    canActivate: [ AdminGuard ]
+    canActivate: [ AdminGuard ],
+    children: [
+      
+    ]
   }
 ]
 
