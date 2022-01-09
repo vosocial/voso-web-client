@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: "", component: LandingPageComponent, pathMatch: "full" },
   { path: "signout", component: DisconnectedPageComponent, pathMatch: "full" },
   { path: RouteNames.VOSO_CONNECT, loadChildren: () => import('./features/voso-connect/voso-connect.module').then(m => m.VosoConnectModule) },
+  { path: RouteNames.ADMIN, loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({
