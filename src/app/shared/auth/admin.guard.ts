@@ -52,7 +52,7 @@ export class AdminGuard implements CanActivate {
           this.router.navigateByUrl('');
         }
        } catch (error) {
-        //console.log('[Authentication Error] ::', error);
+        console.log('[Authentication Error] ::', error);
         //TODO: Log privately
         reject(false);
         this.router.navigateByUrl(''); // reroute to landing

@@ -26,9 +26,9 @@
   ],
   "private": true,
   "dependencies": {
-    "@adonoustech/desoscript-aws": "^0.17.0",
-    "@adonoustech/desoscript-core": "^0.17.4",
-    "@adonoustech/desoscript-extras": "^0.17.0",
+    "@adonoustech/desoscript-aws": "^1.7.1",
+    "@adonoustech/desoscript-core": "^1.13.2",
+    "@adonoustech/desoscript-extras": "^1.11.3",
     "@angular/animations": "~13.1.1",
     "@angular/cdk": "^13.1.1",
     "@angular/common": "^13.1.1",

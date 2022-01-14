@@ -1,0 +1,75 @@
+<ng-template #scroller>
+    <cdk-virtual-scroll-viewport itemSize="autosize" class="post-feed-viewport">
+        <ul role="list" class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+            <li *cdkVirtualFor="let item of data; index as index;" class="relative">
+              <div (click)="emitExhibitSelection(item)" class="relative group block w-full rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+                <!--DEV!! Only show posts with images for now-->
+                <div *ngIf="item.ImageURLs">
+                  <div *ngIf="item.ImageURLs.length > 0">
+                    <img [src]="item.ImageURLs[0]" alt="" class="object-cover pointer-events-none group-hover:opacity-75">
+                    <div class="absolute top-0 inset-x-0 h-auto rounded-none p-4 overflow-hidden">
+                      <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-30"></div>
+                      <div class="flex justify-between">
+                        <div class="flex space-x-4">
+                          <div class="flex space-x-2 text-white">
+                            <strong>{{item.DiamondCount}}</strong>
+                            <svg class="mt-1 ml-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g transform="translate(0, 0)"><path fill="white" d="M15.8,4.4l-2-3C13.6,1.2,13.3,1,13,1H3C2.7,1,2.4,1.2,2.2,1.4l-2,3c-0.2,0.4-0.2,0.8,0,1.2l7,9 c0.4,0.5,1.2,0.5,1.6,0l7-9C16.1,5.3,16.1,4.8,15.8,4.4z M8,12.4L2.2,5l1.3-2h8.9l1.3,2L8,12.4z"></path></g></svg>
+                          </div>
+                          <div class="flex space-x-2 text-white">
+                            <strong>{{item.LikeCount}}</strong>
+                            <svg class="mt-1 ml-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g transform="translate(0, 0)"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M11.5,0.5 C9.982,0.5,8.678,1.355,8,2.601C7.322,1.355,6.018,0.5,4.5,0.5c-2.209,0-4,1.791-4,4c0,4,7.5,11,7.5,11s7.5-7,7.5-11 C15.5,2.291,13.709,0.5,11.5,0.5z" data-cap="butt"></path> </g></svg>
+                          </div>
+                          <div class="flex space-x-2 text-white">
+                            <strong>{{item.CommentCount}}</strong>
+                            <svg class="mt-1 ml-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g transform="translate(0, 0)"><path fill="#ffffff" d="M15,0H1C0.4,0,0,0.4,0,1v11c0,0.6,0.4,1,1,1h3.6l2.7,2.7C7.5,15.9,7.7,16,8,16s0.5-0.1,0.7-0.3l2.7-2.7H15 c0.6,0,1-0.4,1-1V1C16,0.4,15.6,0,15,0z M14,11h-3c-0.3,0-0.5,0.1-0.7,0.3L8,13.6l-2.3-2.3C5.5,11.1,5.3,11,5,11H2V2h12V11z"></path></g></svg>
+                          </div>
+                        </div>
+                        <div>
+                          <div *ngIf="item.HasUnlockable" class="flex space-x-2 text-white">
+                            <svg class="mt-1 ml-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16"><g transform="translate(0, 0)"><path d="M5.594,5.028c.136,0,.271.017.406.029V4a2,2,0,0,1,4,0V5.057c.135-.012.27-.029.406-.029A4.538,4.538,0,0,1,12,5.33V4A4,4,0,0,0,4,4V5.33A4.538,4.538,0,0,1,5.594,5.028Z" fill="#ffffff" data-color="color-2"></path><path d="M10.406,6.028A3.555,3.555,0,0,0,8,6.969a3.555,3.555,0,0,0-2.406-.941A3.6,3.6,0,0,0,2,9.622c0,4.081,5.586,6.223,5.824,6.312L8,16l.176-.066C8.414,15.845,14,13.7,14,9.622A3.6,3.6,0,0,0,10.406,6.028Z" fill="#ffffff"></path></g></svg>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="absolute inset-0 focus:outline-none">
+                  <span class="sr-only">View details</span>
+                </button>
+              </div>
+              <div class="md:flex justify-between">
+                <div>
+                  <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none">{{item.Body}}</p>
+                  <p class="block text-sm font-medium text-gray-500 pointer-events-none">{{item.NumNFTCopiesForSale}} for Sale</p>
+                </div>
+                <div>
+                  <div class="flex flex-row">
+                    <div>
+                      <sponsor [sponsoredExhibit]="item"
+                      [sponsorshipData]="sponsorshipData"></sponsor>
+                    </div>
+                    <div class="ml-4">
+                      <nft-actions-modal
+                      [post]="item">
+                    </nft-actions-modal>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+            </li>
+        </ul>
+
+    </cdk-virtual-scroll-viewport>
+</ng-template>
+
+<!--implementation-->
+<div postFeedDatabinder [feedPostType]="'stateless'" (dataRetrieved)="onDataRetrieved($event)">
+    <div>
+<!--     <ng-container *ngTemplateOutlet="scroller"></ng-container> -->
+    </div>
+</div>
+
