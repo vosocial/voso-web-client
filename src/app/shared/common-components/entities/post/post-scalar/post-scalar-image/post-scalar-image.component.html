@@ -1,0 +1,10 @@
+<ng-template #image>
+    <div class="flex justify-center aspect-w-10 aspect-h-7 rounded overflow-hidden">
+        <img class="object-cover" [src]="imageUri" />
+    </div>
+</ng-template>
+
+<!--implementation-->
+<div *ngIf="imageUri">
+    <ng-container *ngTemplateOutlet="image"></ng-container>
+</div>

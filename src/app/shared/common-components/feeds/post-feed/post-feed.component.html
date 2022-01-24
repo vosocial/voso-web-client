@@ -2,7 +2,7 @@
     <cdk-virtual-scroll-viewport itemSize="autosize" class="post-feed-viewport">
         <ul role="list" class="divide-y divide-gray-200">
             <li *cdkVirtualFor="let item of data; index as index;" class="relative py-4">
-              Hello
+              <post-scalar [post]="item"></post-scalar>
             </li>
         </ul>
 

@@ -1,1 +1,14 @@
-<p>post-scalar works!</p>
+<ng-template #postImage>
+    <post-scalar-image
+        [imageUri]="post.ImageURLs[0]">
+    </post-scalar-image>
+</ng-template>
+
+
+<!--implementation-->
+<div *ngIf="post && post.ImageURLs">
+    <div *ngIf="post.ImageURLs.length > 0">
+        <ng-container *ngTemplateOutlet="postImage"></ng-container>
+    </div>
+</div>
+
