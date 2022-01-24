@@ -6,7 +6,6 @@ import { VosoConnectButtonModule } from './voso-connect-button/voso-connect-butt
 import { VosoDisconnectButtonModule } from './voso-disconnect-button/voso-disconnect-button.module';
 
 import { PostScalarModule } from './entities/post/post-scalar';
-
 import { FeedsModule } from './feeds/feeds.module';
 
 @NgModule({
