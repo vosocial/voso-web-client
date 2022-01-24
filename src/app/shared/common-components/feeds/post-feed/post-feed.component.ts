@@ -17,7 +17,7 @@ export class PostFeedComponent extends FeedShell implements OnInit {
   // Inherited
   desoUser: IUser;
   vosoUser: CognitoUser;
-  data: any;
+  data: IPost[];
   initializing: boolean;
   working: boolean;
 
@@ -33,10 +33,13 @@ export class PostFeedComponent extends FeedShell implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('this.data ::', this.data);
   }
 
   onDataRetrieved(data: IPost[]) {
-    this.debug ? console.log('[Data Retrieved] :: ', data) : void 0;
+
+    this.data = [].concat(data);
+    this.debug ? console.log('[this.data fron databinder] :: ', this.data) : void 0;
   }
 
 }

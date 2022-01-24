@@ -20,7 +20,7 @@ import { CanonicalPassthroughRoutes } from '@adonoustech/desoscript-extras';
 export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
 
   posts: IPost[] | undefined;
-
+  max: number = 1000;
   debug: boolean = true;
 
   constructor(private authService: SharedAuthService,
@@ -43,14 +43,18 @@ export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
    * @memberof PostFeedSingletonService
    */
   async fetchData(feedPostType: FeedPostTypes, publicKey?: string): Promise<void> {
-  try {
-    await this.executeFetch(feedPostType, publicKey);
-  } catch (error) {
-    // TODO: Handle error globally
-    this.debug ? console.log('[ERROR] Post Feed Singleton :: ', error) : null;
+    try {
+      await this.executeFetch(feedPostType, publicKey);
+    } catch (error) {
+      // TODO: Handle error globally
+      this.debug ? console.log('[ERROR] Post Feed Singleton :: ', error) : null;
+    }
+  
   }
   
-}  
+  fetchMaX() {
+    return this.max
+  }
 
   private async executeFetch(feedPostType: FeedPostTypes, publicKey?: string) {
 
@@ -68,7 +72,6 @@ export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
 
 
     let counter: number = 0;
-    let max: number = 1000;
 
     function _shouldRecurse(instruction: boolean) {
       if (instruction) {
@@ -94,7 +97,7 @@ export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
     async function recurseQuery() {
       try {
         const _fetched: IPost[] = await _executePromise();
-        if (_fetched && counter <= max) {
+        if (_fetched && counter <= _self.max) {
           if (_fetched.length > 0) {
               // emit posts to subscribers
               _self.next(_fetched);
@@ -132,6 +135,11 @@ export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
       }
     }
 
+    /**
+     * Hitting pub endpoint - 1/24/22
+     * Hits interceptor (clout-api-interceptor-dev-cloutapiinterceptor5A0D1-36myXU6opgRN)
+     * @returns {Promise<IPost[]>}
+     */
     function _executePromise(): Promise<IPost[]> {
       // Return as many incremental promises as necessary
       return new Promise(async (resolve, reject) => {

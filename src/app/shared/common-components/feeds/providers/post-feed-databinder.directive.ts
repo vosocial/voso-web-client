@@ -4,11 +4,14 @@ import { Directive,
          OnInit,
          OnDestroy,
          EventEmitter } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { from, Observable, Subscription } from 'rxjs';
+import { fromEvent, interval } from 'rxjs';
+import { bufferCount } from 'rxjs/operators'
 import * as _ from 'lodash';
 import { IPost } from '@adonoustech/desoscript-core';
 import { PostFeedSingletonService } from './post-feed-singleton.service';
 import { FeedPostTypes } from './feed-post-types';
+import { PostFeedComponent } from '../post-feed/post-feed.component';
 
 @Directive({
   selector: '[postFeedDatabinder]'
@@ -20,10 +23,13 @@ export class PostFeedDatabinderDirective implements OnInit, OnDestroy {
   @Output() dataRetrieved: EventEmitter<any> = new EventEmitter;
 
   dataSubscription: Subscription | undefined;
+  masterDataFeed: IPost[];
 
   debug: boolean = true;
 
-  constructor(private dataService: PostFeedSingletonService) {}
+  constructor(private dataService: PostFeedSingletonService) {
+    this.masterDataFeed = new Array<IPost>();
+  }
 
   ngOnInit(): void {
       this.subscribeToData();
@@ -40,20 +46,19 @@ export class PostFeedDatabinderDirective implements OnInit, OnDestroy {
   }
 
   private subscribeToData(): void {
-    this.dataSubscription = this.dataService.subscribe(
+    this.dataSubscription = this.dataService
+                                .pipe()
+                                .subscribe(
       {
         next: ((data: IPost[]) => {
-          // TODO: Determine filter implementation (if any)
-          this.debug ? console.log('subscribed data :: ', data) : void 0;
-          this.dataRetrieved.emit(data);
-        }),
-        error: ((error: string) => {
-          this.debug ? console.log('error handling data sub ::', error) : void 0;
-          //TODO: handle error
-          //TODO: Emit canonical error here
+          _.map(data, (d: IPost) => {
+            this.masterDataFeed.push(d);
+          });
+          this.debug ? console.log('this.masterDataFeed :: ', this.masterDataFeed) : void 0;
+          this.dataRetrieved.emit(this.masterDataFeed);
         })
       }
-    )
+    );
   }
 
   private unsubscribeFromData(): void {
