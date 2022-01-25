@@ -36,6 +36,7 @@ export const environment = {
   node: {
     name: 'Ninja Node',
     url: 'https://node.bitcloutapps.ninja',
+    api: 'https://node.bitcloutapps.ninja/api/v0/',
     logoAssetDir: '/assets/deso/',
     host: 'node.bitcloutapps.ninja',
     profile_pic_fallback: '/assets/img/default_profile_pic.png'

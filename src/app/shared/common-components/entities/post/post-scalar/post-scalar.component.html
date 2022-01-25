@@ -1,3 +1,16 @@
+<ng-template #posterAvatar>
+    <post-scalar-avatar
+        [publicKey]="post.PosterPublicKeyBase58Check"
+        [desoUserName]="post.ProfileEntryResponse.Username">
+    </post-scalar-avatar>
+</ng-template>
+
+<ng-template #postBody>
+    <post-scalar-body
+        [postBody]="post.Body"
+    ></post-scalar-body>
+</ng-template>
+
 <ng-template #postImage>
     <post-scalar-image
         [imageUri]="post.ImageURLs[0]">
@@ -6,9 +19,27 @@
 
 
 <!--implementation-->
-<div *ngIf="post && post.ImageURLs">
-    <div *ngIf="post.ImageURLs.length > 0">
-        <ng-container *ngTemplateOutlet="postImage"></ng-container>
+<!--post contents-->
+<div *ngIf="post">
+    <div>
+        <!--Section :: Avatar and Info-->
+        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
+            <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
+        </div>
+
+        <!--Section :: Post Body -->
+        <div class="py-5 mx-4">
+            <article *ngIf="post.Body" class="dark:text-white prose lg:prose-xl">
+                {{ post.Body }}
+              </article>
+        </div>
+
+        <!--Section :: Image-->
+        <div class="mx-4" *ngIf="post.ImageURLs">
+            <div *ngIf="post.ImageURLs.length > 0">
+                <ng-container *ngTemplateOutlet="postImage"></ng-container>
+            </div>
+        </div>
     </div>
 </div>
 

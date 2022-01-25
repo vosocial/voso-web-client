@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PostScalarComponent } from './post-scalar.component';
 import { PostScalarDatabinderDirective } from './post-scalar-databinder.directive';
 import { PostScalarImageComponent } from './post-scalar-image/post-scalar-image.component';
+import { PostScalarAvatarComponent } from './post-scalar-avatar/post-scalar-avatar.component';
+import { PostScalarBodyComponent } from './post-scalar-body/post-scalar-body.component';
 
 
 
@@ -10,7 +12,9 @@ import { PostScalarImageComponent } from './post-scalar-image/post-scalar-image.
   declarations: [
     PostScalarComponent,
     PostScalarDatabinderDirective,
-    PostScalarImageComponent
+    PostScalarImageComponent,
+    PostScalarAvatarComponent,
+    PostScalarBodyComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +22,8 @@ import { PostScalarImageComponent } from './post-scalar-image/post-scalar-image.
   exports: [
     PostScalarComponent,
     PostScalarDatabinderDirective,
-    PostScalarImageComponent
+    PostScalarImageComponent,
+    PostScalarAvatarComponent
   ]
 })
 export class PostScalarModule { }

@@ -3,7 +3,7 @@
         <ul role="list">
             <li *cdkVirtualFor="let item of data; index as index;" class="relative py-4">
               <!--feed post container: critical for sizing post components-->
-              <div class="w-full py-10 lg:px-40 border border-gray-600 rounded">
+              <div class="w-full py-10 lg:px-40 lg:border lg:border-gray-600 rounded">
                 <post-scalar [post]="item"></post-scalar>
               </div>
             </li>
