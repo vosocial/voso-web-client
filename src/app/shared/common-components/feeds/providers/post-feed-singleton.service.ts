@@ -52,10 +52,6 @@ export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
   
   }
   
-  fetchMaX() {
-    return this.max
-  }
-
   private async executeFetch(feedPostType: FeedPostTypes, publicKey?: string) {
 
     let _self = this; // BehaviorSubject
