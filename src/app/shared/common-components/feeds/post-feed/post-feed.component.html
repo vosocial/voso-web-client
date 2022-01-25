@@ -1,8 +1,11 @@
 <ng-template #scroller>
     <cdk-virtual-scroll-viewport itemSize="autosize" class="post-feed-viewport">
-        <ul role="list" class="divide-y divide-gray-200">
+        <ul role="list">
             <li *cdkVirtualFor="let item of data; index as index;" class="relative py-4">
-              <post-scalar [post]="item"></post-scalar>
+              <!--feed post container: critical for sizing post components-->
+              <div class="w-full py-10 lg:px-40 border border-gray-600 rounded">
+                <post-scalar [post]="item"></post-scalar>
+              </div>
             </li>
         </ul>
 
