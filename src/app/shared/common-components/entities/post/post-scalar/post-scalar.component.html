@@ -29,9 +29,7 @@
 
         <!--Section :: Post Body -->
         <div class="py-5 mx-4">
-            <article *ngIf="post.Body" class="dark:text-white prose lg:prose-xl">
-                {{ post.Body }}
-              </article>
+            <ng-container *ngTemplateOutlet="postBody"></ng-container>
         </div>
 
         <!--Section :: Image-->

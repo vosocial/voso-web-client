@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./tailwind_custom.scss";
 
+/*Force prose to use white hyperlinks in dark mode*/
+.dark .prose :where(a):not(:where([class~="not-prose"] *)) {
+    color: #fff !important;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

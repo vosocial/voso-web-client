@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppPipesModule } from 'src/app/shared/pipes/app-pipes.module';
 import { PostScalarComponent } from './post-scalar.component';
 import { PostScalarDatabinderDirective } from './post-scalar-databinder.directive';
 import { PostScalarImageComponent } from './post-scalar-image/post-scalar-image.component';
@@ -17,7 +18,8 @@ import { PostScalarBodyComponent } from './post-scalar-body/post-scalar-body.com
     PostScalarBodyComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppPipesModule
   ],
   exports: [
     PostScalarComponent,

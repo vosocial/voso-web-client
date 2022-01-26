@@ -42,3 +42,7 @@ See docs:
 .mat-dialog-container {
     @apply bg-transparent shadow-none !important;
 }
+
+.dark-prose-links {
+    @apply dark:text-white !important;
+}

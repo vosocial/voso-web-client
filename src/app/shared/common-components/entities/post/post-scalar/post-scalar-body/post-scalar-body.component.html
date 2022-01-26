@@ -1,1 +1,4 @@
-<p>post-scalar-body works!</p>
+<article *ngIf="postBody" 
+    [innerHTML]="postBody | sanitizeAndAutoLink"
+    class="dark:text-white prose lg:prose-xl dark:active:text-white">
+</article>
