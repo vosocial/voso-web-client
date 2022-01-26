@@ -2,7 +2,8 @@ import { BasePost, IPost } from '@adonoustech/desoscript-core';
 import { Component, 
          OnInit,
          AfterViewInit,
-         Input } from '@angular/core';
+         Input,
+         ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'post-repost-wrapper',
@@ -16,7 +17,7 @@ export class PostRepostWrapperComponent extends BasePost implements OnInit, Afte
   repost: IPost;
   debug: boolean = true;
   
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
       super(); 
    }
 
@@ -26,11 +27,14 @@ export class PostRepostWrapperComponent extends BasePost implements OnInit, Afte
   ngAfterViewInit(): void {
       if (this.post) {
         if (this.post.RepostedPostEntryResponse) {
-          this.repost = this.post.RepostedPostEntryResponse
+          this.repost = this.post.RepostedPostEntryResponse;
+          this.cd.detectChanges();
         } else {
           console.warn('[WARN] - Initialization indicated repost, but none found.');
-          this.debug ? console.log('this.repost :: ', this.repost) : void 0;
+          this.debug ? console.log('this.repost :: ', this.post) : void 0;
         }
+      } else {
+        console.log('post not found :: ', this.post);
       }
   }
 

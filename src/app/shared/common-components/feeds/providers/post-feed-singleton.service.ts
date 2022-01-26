@@ -20,7 +20,7 @@ import { CanonicalPassthroughRoutes } from '@adonoustech/desoscript-extras';
 export class PostFeedSingletonService extends BehaviorSubject<IPost[]> {
 
   posts: IPost[] | undefined;
-  max: number = 1000;
+  max: number = 50;
   debug: boolean = true;
 
   constructor(private authService: SharedAuthService,

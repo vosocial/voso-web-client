@@ -9,13 +9,15 @@ export class PostScalarImageComponent implements OnInit, AfterViewInit {
 
   @Input() imageUri: string;
 
+  debug: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-      console.log('this.imageUri :: ', this.imageUri);
+      this.debug ? console.log('this.imageUri :: ', this.imageUri) : void 0;
   }
 
 }
