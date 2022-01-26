@@ -34,7 +34,7 @@ export class PostRepostWrapperComponent extends BasePost implements OnInit, Afte
           this.debug ? console.log('this.repost :: ', this.post) : void 0;
         }
       } else {
-        console.log('post not found :: ', this.post);
+        this.debug ? console.log('post not found :: ', this.post) : void 0;
       }
   }
 

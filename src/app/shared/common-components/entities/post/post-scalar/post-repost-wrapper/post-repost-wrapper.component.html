@@ -1,1 +1,30 @@
-<div *ngIf="repost">{{repost.PostHashHex}}</div>
+
+
+<ng-template #posterAvatar>
+    <post-scalar-avatar
+        [publicKey]="post.PosterPublicKeyBase58Check"
+        [desoUserName]="post.ProfileEntryResponse.Username">
+    </post-scalar-avatar>
+</ng-template>
+
+<ng-template #postBody>
+    <post-scalar-body
+        [postBody]="post.Body"
+    ></post-scalar-body>
+</ng-template>
+
+<ng-template #postImage>
+    <post-scalar-image
+        [imageUri]="post.ImageURLs[0]">
+    </post-scalar-image>
+</ng-template>
+
+<!--implementation-->
+<div *ngIf="repost">
+    <div>
+        <!--Section :: Avatar and Info-->
+        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
+            <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
+        </div>
+    </div>
+</div>
