@@ -29,11 +29,11 @@
 <div *ngIf="post">
 
         <!--Section :: Avatar and Info-->
-        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
+        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4 py-4">
             <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
         </div>
 
-        <div class="mx-4">
+        <div class="mx-4 sm:mx-28 block">
             <!--Section :: Post Body -->
             <div class="py-5">
                 <ng-container *ngTemplateOutlet="postBody"></ng-container>
@@ -46,8 +46,8 @@
             </div>
 
             <!--Section :: Repost-->
-            <div class="mb-5">
-                <div *ngIf="post.RepostedPostEntryResponse">
+            <div *ngIf="post.RepostedPostEntryResponse" class="mb-5 border-t-2 sm:border-t-0 border-zinc-800">
+                <div>
                     <ng-container *ngTemplateOutlet="repost"></ng-container>
                 </div>
             </div>

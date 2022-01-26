@@ -21,14 +21,14 @@
 
 <!--implementation-->
 <div *ngIf="repost">
-    <div class="dark:bg-zinc-900 p-6 rounded lg:border-2 lg:border-zinc-800">
+    <div class="dark:bg-zinc-900 rounded lg:border-2 lg:border-zinc-800">
 
         <!--Section :: Avatar and Info-->
-        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
+        <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4 py-4">
             <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
         </div>
 
-        <div class="mx-4">
+        <div class="mx-4 sm:mx-28">
             <!--Section :: Post Body -->
             <div class="py-5">
                 <ng-container *ngTemplateOutlet="postBody"></ng-container>
@@ -38,13 +38,6 @@
             <!--Section :: Image-->
             <div class="aspect-w-3 aspect-h-2 sm:aspect-w-5 lg:aspect-none lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16" *ngIf="repost.ImageURLs && repost.ImageURLs.length > 0">
                 <ng-container *ngTemplateOutlet="postImage"></ng-container>
-            </div>
-
-            <!--Section :: Repost-->
-            <div class="mb-5">
-                <div *ngIf="post.RepostedPostEntryResponse">
-                    <ng-container *ngTemplateOutlet="repost"></ng-container>
-                </div>
             </div>
 
         </div>
