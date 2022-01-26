@@ -27,30 +27,35 @@
 <!--implementation-->
 <!--post contents-->
 <div *ngIf="post">
-    <div>
+
         <!--Section :: Avatar and Info-->
         <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
             <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
         </div>
 
-        <!--Section :: Post Body -->
-        <div class="py-5 mx-4 max-w-prose">
-            <ng-container *ngTemplateOutlet="postBody"></ng-container>
-        </div>
+        <div class="mx-4">
+            <!--Section :: Post Body -->
+            <div class="py-5">
+                <ng-container *ngTemplateOutlet="postBody"></ng-container>
+            </div>
+            
 
-        <!--Section :: Image-->
-        <div class="mx-4 mb-5" *ngIf="post.ImageURLs">
-            <div *ngIf="post.ImageURLs.length > 0">
+            <!--Section :: Image-->
+            <div class="aspect-w-3 aspect-h-2 sm:aspect-w-5 lg:aspect-none lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16" *ngIf="post.ImageURLs && post.ImageURLs.length > 0">
                 <ng-container *ngTemplateOutlet="postImage"></ng-container>
             </div>
-        </div>
 
-        <!--Section :: Repost-->
-        <div class="mx-4 mb-5">
-            <div *ngIf="post.RepostedPostEntryResponse">
-                <ng-container *ngTemplateOutlet="repost"></ng-container>
+            <!--Section :: Repost-->
+            <div class="mb-5">
+                <div *ngIf="post.RepostedPostEntryResponse">
+                    <ng-container *ngTemplateOutlet="repost"></ng-container>
+                </div>
             </div>
+
         </div>
-    </div>
+    
+
+
+
 </div>
 

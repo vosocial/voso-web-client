@@ -2,29 +2,52 @@
 
 <ng-template #posterAvatar>
     <post-scalar-avatar
-        [publicKey]="post.PosterPublicKeyBase58Check"
-        [desoUserName]="post.ProfileEntryResponse.Username">
+        [publicKey]="repost.PosterPublicKeyBase58Check"
+        [desoUserName]="repost.ProfileEntryResponse.Username">
     </post-scalar-avatar>
 </ng-template>
 
 <ng-template #postBody>
     <post-scalar-body
-        [postBody]="post.Body"
+        [postBody]="repost.Body"
     ></post-scalar-body>
 </ng-template>
 
 <ng-template #postImage>
     <post-scalar-image
-        [imageUri]="post.ImageURLs[0]">
+        [imageUri]="repost.ImageURLs[0]">
     </post-scalar-image>
 </ng-template>
 
 <!--implementation-->
 <div *ngIf="repost">
-    <div>
+    <div class="dark:bg-zinc-900 p-6 rounded lg:border-2 lg:border-zinc-800">
+
         <!--Section :: Avatar and Info-->
         <div *ngIf="post.PosterPublicKeyBase58Check" class="mx-4">
             <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
         </div>
+
+        <div class="mx-4">
+            <!--Section :: Post Body -->
+            <div class="py-5">
+                <ng-container *ngTemplateOutlet="postBody"></ng-container>
+            </div>
+            
+
+            <!--Section :: Image-->
+            <div class="aspect-w-3 aspect-h-2 sm:aspect-w-5 lg:aspect-none lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16" *ngIf="repost.ImageURLs && repost.ImageURLs.length > 0">
+                <ng-container *ngTemplateOutlet="postImage"></ng-container>
+            </div>
+
+            <!--Section :: Repost-->
+            <div class="mb-5">
+                <div *ngIf="post.RepostedPostEntryResponse">
+                    <ng-container *ngTemplateOutlet="repost"></ng-container>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </div>
