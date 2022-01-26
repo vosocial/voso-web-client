@@ -6,6 +6,7 @@ import { PostScalarDatabinderDirective } from './post-scalar-databinder.directiv
 import { PostScalarImageComponent } from './post-scalar-image/post-scalar-image.component';
 import { PostScalarAvatarComponent } from './post-scalar-avatar/post-scalar-avatar.component';
 import { PostScalarBodyComponent } from './post-scalar-body/post-scalar-body.component';
+import { PostRepostWrapperComponent } from './post-repost-wrapper/post-repost-wrapper.component';
 
 
 
@@ -15,7 +16,8 @@ import { PostScalarBodyComponent } from './post-scalar-body/post-scalar-body.com
     PostScalarDatabinderDirective,
     PostScalarImageComponent,
     PostScalarAvatarComponent,
-    PostScalarBodyComponent
+    PostScalarBodyComponent,
+    PostRepostWrapperComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,9 @@ import { PostScalarBodyComponent } from './post-scalar-body/post-scalar-body.com
     PostScalarComponent,
     PostScalarDatabinderDirective,
     PostScalarImageComponent,
-    PostScalarAvatarComponent
+    PostScalarAvatarComponent,
+    PostScalarBodyComponent,
+    PostRepostWrapperComponent
   ]
 })
 export class PostScalarModule { }

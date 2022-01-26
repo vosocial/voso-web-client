@@ -9,7 +9,6 @@ import { PostScalarModule } from './entities/post/post-scalar';
 import { FeedsModule } from './feeds/feeds.module';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     FeedsModule,

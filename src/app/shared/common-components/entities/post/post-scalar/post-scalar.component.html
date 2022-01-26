@@ -17,6 +17,12 @@
     </post-scalar-image>
 </ng-template>
 
+<ng-template #repost>
+    <post-repost-wrapper
+        [post]="repost">
+    </post-repost-wrapper>
+</ng-template>
+
 
 <!--implementation-->
 <!--post contents-->
@@ -28,14 +34,21 @@
         </div>
 
         <!--Section :: Post Body -->
-        <div class="py-5 mx-4">
+        <div class="py-5 mx-4 max-w-prose">
             <ng-container *ngTemplateOutlet="postBody"></ng-container>
         </div>
 
         <!--Section :: Image-->
-        <div class="mx-4" *ngIf="post.ImageURLs">
+        <div class="mx-4 mb-5" *ngIf="post.ImageURLs">
             <div *ngIf="post.ImageURLs.length > 0">
                 <ng-container *ngTemplateOutlet="postImage"></ng-container>
+            </div>
+        </div>
+
+        <!--Section :: Repost-->
+        <div class="mx-4 mb-5">
+            <div *ngIf="post.RepostedPostEntryResponse">
+                <ng-container *ngTemplateOutlet="repost"></ng-container>
             </div>
         </div>
     </div>
