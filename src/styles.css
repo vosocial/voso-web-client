@@ -10,8 +10,8 @@
 }
 
 /*Material*/
-.mat-bottom-sheet-container {
-    background-color: #fff;
+.dark .mat-bottom-sheet-container {
+    background-color: #27272A !important;
 }
 
 /* width */
