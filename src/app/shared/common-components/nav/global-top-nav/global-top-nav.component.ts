@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MenuStates } from './providers/menu-states';
 import { FlyoutMenuAnimation } from 'src/app/shared/animations';
 import { environment } from 'src/environments/environment';
@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
   animations: [ FlyoutMenuAnimation ]
 })
 export class GlobalTopNavComponent implements OnInit {
+
+  @Output() mobileMenuToggled: EventEmitter<boolean> = new EventEmitter()
 
   menuStateA: string;
   menuStateB: string;
@@ -37,6 +39,10 @@ export class GlobalTopNavComponent implements OnInit {
     }
     console.log('this.meuState :: ', this.menuStateA);
 
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuToggled.emit(true);
   }
 
 }

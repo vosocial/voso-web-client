@@ -6,7 +6,12 @@
     color: #fff !important;
     font-weight: 800;
     display: inline-block !important;
-    max-width: 100px;
+    max-width: 400px;
+}
+
+/*Material*/
+.mat-bottom-sheet-container {
+    background-color: #fff;
 }
 
 /* width */

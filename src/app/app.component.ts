@@ -14,6 +14,9 @@ import { SharedAuthService } from "./shared/services/auth/shared-auth.service";
 import { IDataLayerInterceptorRequest } from "@adonoustech/desoscript-aws";
 import { CanonicalDLIInstructions } from "@adonoustech/desoscript-extras";
 import { IStoreableUser } from "./shared/passthrough";
+import { MatBottomSheet,
+         MatBottomSheetRef} from "@angular/material/bottom-sheet"; 
+import { GlobalMobileNavComponent } from "./shared/common-components/nav/global-mobile-nav/global-mobile-nav.component";  
 
 @Component({
   selector: "app-root",
@@ -28,7 +31,8 @@ export class AppComponent implements OnInit {
     private route: ActivatedRoute,
     public identityService: IdentityService,
     private router: Router,
-    private authService: SharedAuthService
+    private authService: SharedAuthService,
+    private bottomSheet: MatBottomSheet
   ) {
     this.globalVars.Init(
       null, // loggedInUser
@@ -67,6 +71,10 @@ export class AppComponent implements OnInit {
   callingUpdateNodeInfo = false;
 
   userToken: CognitoUser | undefined;
+
+  onMobileMenuToggled() {
+    this.bottomSheet.open(GlobalMobileNavComponent);
+  }
 
   // TODO: Cleanup - we should not be inserting links dynamically
   // This is used to add router links dynamically. Feed posts use this

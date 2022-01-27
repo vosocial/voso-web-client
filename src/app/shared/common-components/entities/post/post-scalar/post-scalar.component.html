@@ -33,7 +33,7 @@
             <ng-container *ngTemplateOutlet="posterAvatar"></ng-container>
         </div>
 
-        <div class="mx-4 block">
+        <div class="mx-4">
             <!--Section :: Post Body -->
             <div class="py-5">
                 <ng-container *ngTemplateOutlet="postBody"></ng-container>
@@ -41,12 +41,12 @@
             
 
             <!--Section :: Image-->
-            <div class="aspect-w-3 aspect-h-2 sm:aspect-w-5 lg:aspect-none lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16" *ngIf="post.ImageURLs && post.ImageURLs.length > 0">
+            <div class="rounded shadow-lg lg:max-w-lg lg:max-h-fit" *ngIf="post.ImageURLs && post.ImageURLs.length > 0">
                 <ng-container *ngTemplateOutlet="postImage"></ng-container>
             </div>
 
             <!--Section :: Repost-->
-            <div *ngIf="post.RepostedPostEntryResponse" class="mb-5 border-t-2 sm:border-t-0 border-zinc-800">
+            <div *ngIf="post.RepostedPostEntryResponse" class="my-5 border-t-2 sm:border-t-0 border-zinc-800">
                 <div>
                     <ng-container *ngTemplateOutlet="repost"></ng-container>
                 </div>

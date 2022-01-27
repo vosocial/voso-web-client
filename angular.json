@@ -27,7 +27,8 @@
               "src/vendor"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/custom-mat.scss"
             ],
             "allowedCommonJsDependencies": [
               "apexcharts",
