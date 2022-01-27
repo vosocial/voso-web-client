@@ -1,3 +1,11 @@
+<ng-template #navigation>
+  <global-top-nav></global-top-nav>
+</ng-template>
+
+<div class="relative">
+  <ng-container *ngTemplateOutlet="navigation"></ng-container>
+</div> 
+
 <!-- Identity service / storage access request -->
 <iframe
   id="identity"

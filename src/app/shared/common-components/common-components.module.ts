@@ -7,11 +7,13 @@ import { VosoDisconnectButtonModule } from './voso-disconnect-button/voso-discon
 
 import { PostScalarModule } from './entities/post/post-scalar';
 import { FeedsModule } from './feeds/feeds.module';
+import { NavModule } from './nav';
 
 @NgModule({
   imports: [
     CommonModule,
     FeedsModule,
+    NavModule,
     PostScalarModule,
     VosoConnectStatusModule,
     VosoConnectButtonModule,
@@ -19,6 +21,7 @@ import { FeedsModule } from './feeds/feeds.module';
   ],
   exports: [
     FeedsModule,
+    NavModule,
     PostScalarModule,
     VosoConnectStatusModule,
     VosoConnectButtonModule,

@@ -33,3 +33,25 @@ trigger(CanonicalAnimationTriggers.MENU_STATE, [
       ]))
     ])
   ]);
+
+  export const FlyoutMenuAnimation = 
+  trigger(CanonicalAnimationTriggers.MENU_STATE, [
+      state(CanonicalAnimationStates.SHOW, style({
+        visibility: 'visible'
+      })),
+      state(CanonicalAnimationStates.HIDE, style({
+        visibility: 'hidden',
+      })),
+      transition(CanonicalTransitionStates.SHOW_TO_HIDE, [
+        animate('150ms ease-in', keyframes([
+          style({opacity: 1, transform: 'translateY(0px)'}),
+          style({opacity: 0, transform: 'translateY(0.25rem)'})
+        ]))
+      ]),
+      transition(CanonicalTransitionStates.HIDE_TO_SHOW, [
+        animate('200ms ease-out', keyframes([
+          style({opacity: 0, transform: 'translateY(0.25rem)'}),
+          style({opacity: 1, transform: 'translateY(0px)'})
+        ]))
+      ])
+    ]);

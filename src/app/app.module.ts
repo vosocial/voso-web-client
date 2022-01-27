@@ -11,6 +11,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppDirectivesModule } from "./shared/directives/app-directives.module";
 import { AppPipesModule } from "./shared/pipes/app-pipes.module";
 import { SplashScreenModule } from "./shared/util/splash/splash-screen/splash-screen.module";
+import { CommonComponentsModule } from "./shared/common-components";
 
 // main components
 import { AppComponent } from "./app.component";
@@ -28,6 +29,7 @@ import { DisconnectedPageComponent } from './disconnected-page/disconnected-page
     AppPipesModule,
     BrowserAnimationsModule,
     BrowserModule,
+    CommonComponentsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

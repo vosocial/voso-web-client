@@ -35,5 +35,11 @@ export const environment = {
     logoAssetDir: '/assets/deso/',
     host: 'node.bitcloutapps.ninja',
     profile_pic_fallback: '/assets/img/default_profile_pic.png'
+  },
+  admin: {
+    defaultReaderKey: 'BC1YLgQMDskGR7m7V3uRqh62wFCZsPgVWH5BFHijArSRLJyPCVo9AuR'
+  },
+  cdn: {
+    endpoint: 'https://d3bgu04shib8ev.cloudfront.net/'
   }
 };

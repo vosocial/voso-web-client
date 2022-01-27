@@ -43,5 +43,8 @@ export const environment = {
   },
   admin: {
     defaultReaderKey: 'BC1YLgQMDskGR7m7V3uRqh62wFCZsPgVWH5BFHijArSRLJyPCVo9AuR'
+  },
+  cdn: {
+    endpoint: 'https://d3bgu04shib8ev.cloudfront.net/'
   }
 };

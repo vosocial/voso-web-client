@@ -5,6 +5,8 @@
 .dark .prose :where(a):not(:where([class~="not-prose"] *)) {
     color: #fff !important;
     font-weight: 800;
+    display: inline-block !important;
+    max-width: 100px;
 }
 
 /* width */
